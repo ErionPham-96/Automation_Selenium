@@ -1,0 +1,15 @@
+1. Improve code:
+- Tinh giản element trong code test > creating class ...pages (loginpage, homepage...)
+Ex:
+Class LoginPage:
+username = (By.XPATH....)
+pw...
+
+Class Hmpage:
+
+
+2. Trong một trang có thể có nhiều trang con, trang con & trang chính là các trang riêng.
+Ex: Trong Recuritment -> tạo thêm trang con -> Candidates/Vacancies
+
+3. Patern POM includes: elements and methods to run page
+
