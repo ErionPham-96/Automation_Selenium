@@ -17,7 +17,7 @@ class BaseTest:
         
         # wait ultimately for the username field to be present
         WebDriverWait(driver, DEFAULT_TIMEOUT).until(EC.presence_of_element_located((By.NAME, "username")))
-
+        
         request.cls.driver = driver
         yield
         driver.quit()
