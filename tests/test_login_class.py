@@ -1,26 +1,16 @@
-from selenium.webdriver.common.by import By
-import time
-import csv
-from base.base_test import BaseTest as basetest
 import pytest
+from from base.base_page import BasePage
+from base.base_test import BaseTest
+from pages.login_page import LoginPage
+from config import USERNAME, PASSWORD
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-def read_test_login_data(file_path):
-    keywords = []
-    with open(file_path, mode='r') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            keywords.append((row['username'], row['password']))
-    return keywords 
-
-test_login_data = read_test_login_data('./test_data/login_data.csv')
-
-class TestLogin(basetest):
-    @pytest.mark.parametrize("username, password", test_login_data)
-    def test_login(self, username, password):
-        self.driver.find_element(By.XPATH, "//input[contains(@name, 'username')]").send_keys(username)
-        self.driver.find_element(By.XPATH, "//input[contains(@name, 'password')]").send_keys(password)
-        self.driver.find_element(By.XPATH, "//button[contains(@type, 'submit')]").click()
-        time.sleep(4)
-        check_login = self.driver.find_element(By.XPATH, "//button[contains(@class, 'orangehrm-upgrade-button')]").is_displayed()
-        print("Login successful for user:", username)
+@pytest.mark.usefixtures("setup_driver")
+class TestLogin(BaseTest):
     
+    def test_login(self):
+        lp = LoginPage(self.driver)
+        lp.login(USERNAME, PASSWORD)
+        WebDriverWait(self.driver, 10).until(EC.url_contains("/dashboard"))
+        assert "dashboard" in self.driver.current_url
