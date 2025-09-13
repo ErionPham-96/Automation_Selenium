@@ -33,7 +33,7 @@ class BasePage:
         element = self.find(locator)
         return element.is_selected()
     
-    def assert_success(self, timeout=12):
+    # def assert_success(self, timeout=12):
         # Wait for any toast to appear
         WebDriverWait(self.driver, timeout, 0.2).until(
             EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'oxd-toast')]"))
