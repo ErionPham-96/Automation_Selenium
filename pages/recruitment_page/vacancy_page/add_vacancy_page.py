@@ -3,6 +3,7 @@ from base.base_page import BasePage
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from common.header_bar import HeaderBar
+
 class AddVacancyPage(BasePage):
     
     # Static locators:
@@ -36,14 +37,14 @@ class AddVacancyPage(BasePage):
         button = self.find(self.ADD_VACANCY_BUTTON)
         return button.is_displayed()
     
-    def job_title_option(self, job_title : str):
+    def job_title_option(self, job_title):
         # Locator for job title option in dropdown
         return (
             By.XPATH, 
             f"//div[contains(@class,'oxd-select-option')][normalize-space()='{job_title}']"
         )
     
-    def hiring_manager_option(self, name: str):
+    def hiring_manager_option(self, name):
         return (
             By.XPATH,
             f"//div[contains(@class,'oxd-autocomplete-dropdown')]//div[normalize-space()='{name}']"

@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from base.base_page import BasePage
-from pages.dashboard_page import DashboardPage
+from pages.auth_pages.dashboard_page import DashboardPage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 class LoginPage(BasePage):

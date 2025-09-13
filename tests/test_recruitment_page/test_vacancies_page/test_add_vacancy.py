@@ -1,11 +1,11 @@
 import pytest
 from config import USERNAME, PASSWORD
-from pages.login_page import LoginPage
+from pages.auth_pages.login_page import LoginPage
 from base.base_test import BaseTest
-from pages.recruitment_page.add_vacancy_page import AddVacancyPage
+from pages.recruitment_page.vacancy_page.add_vacancy_page import AddVacancyPage
 from pages.recruitment_page.recruitment_page import RecruitmentPage
-from pages.recruitment_page.vacancies_page import VacanciesPage
-from pages.recruitment_page.add_vacancy_page import AddVacancyPage
+from pages.recruitment_page.vacancy_page.vacancies_page import VacanciesPage
+from pages.recruitment_page.vacancy_page.add_vacancy_page import AddVacancyPage
 from tests.test_data.vacancy_data import valid_vacancy
 @pytest.mark.usefixtures("setup_driver")
 class TestFlow(BaseTest):

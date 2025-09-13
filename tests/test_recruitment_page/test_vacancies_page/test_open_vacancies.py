@@ -1,7 +1,6 @@
 import pytest
 from base.base_test import BaseTest
-from pages.recruitment_page.recruitment_page import RecruitmentPage
-from pages.recruitment_page.vacancies_page import VacanciesPage
+from pages.recruitment_page.vacancy_page.vacancies_page import VacanciesPage
 
 class TestOpenVacancies(BaseTest):
     
