@@ -1,7 +1,7 @@
 import pytest
 from base.base_test import BaseTest
 from pages.login_page import LoginPage
-from config import USERNAME, PASSWORD
+from config.config import USERNAME, PASSWORD
 
 @pytest.mark.usefixtures("setup_driver")
 class TestLogin(BaseTest):
