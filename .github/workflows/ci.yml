@@ -34,7 +34,7 @@ jobs:
       - name: Install ChromeDriver (auto-match Chrome)
         uses: nanasess/setup-chromedriver@v2
 
-      - name: Run smoke tests (no fail-fast)
+      - name: Run smoke tests
         run: |
           pytest -m smoke tests/test_login.py \--html=report.html --self-contained-html
 
