@@ -1,5 +1,5 @@
 from base.base_page import BasePage
-from vacancies_page import VacanciesPage
+from .vacancies_page import VacanciesPage
 from selenium.webdriver.common.by import By
 
 class EditVacancyPage(BasePage):

@@ -6,11 +6,12 @@ from pages.recruitment_page import RecruitmentPage
 from pages.vacancies_page import VacanciesPage
 from pages.add_vacancy_page import AddVacancyPage
 from tests.test_data.vacancy_data import valid_vacancy
+from pages.edit_vacancy_page import EditVacancyPage
 
 @pytest.mark.usefixtures("setup_driver")
 class TestFlow(BaseTest):
     
-    def test_add_vacancy_happy(self):
+    def test_add_vacancy(self):
         # --- Test data
         data = dict(valid_vacancy)
         
@@ -28,15 +29,8 @@ class TestFlow(BaseTest):
         av = AddVacancyPage(self.driver)
         av.click_add_vacancy()
         av.fill_vacancy_form(data)
-        vp.click_vacancies_here()
-        assert "viewJobVacancy" in self.driver.current_url
-        # 4) Search & verify
-        vp.edit_vacancy(data["vacancy_name"])
-        vp.click_vacancies_here()
+        ep = EditVacancyPage(self.driver)
+        ep.cancel_edit()
         vp.search_by_job_title(data)
         vp.search_vacancy()
         vp.verify_vacancy_with_data(data)
-        
-        
-    
-    

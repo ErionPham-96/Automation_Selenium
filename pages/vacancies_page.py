@@ -23,13 +23,17 @@ class VacanciesPage(BasePage):
         # Return True if vacancies header is visible
         header = self.find(self.VACANCIES_HERE)
         return header.is_displayed()
+    
     def row_by_vacancy(self, vacancy_name: str) -> str:
         # Return the locator Vacancy name
         xpath = f"//div[@class='oxd-table-card']//div[@role='cell']//div[normalize-space()='{vacancy_name}']/ancestor::div[@class='oxd-table-card']"
         return (By.XPATH, xpath)
-    def edit_vacancy(self, vacancy_name: str) -> str:
-        xpath = self.row_by_vacancy(vacancy_name) + "//button[i[contains(@class,'bi-pencil-fill')]]"
-        return self.find((By.XPATH, xpath)).click()
+    
+    def edit_vacancy(self, vacancy_name: str):
+        row = self.find(self.row_by_vacancy(vacancy_name))
+        edit_btn = row.find_element(By.XPATH, ".//button[i[contains(@class,'bi-pencil-fill')]]")
+        edit_btn.click()
+        
     def job_title_option(self, job_title):
         # Locator for job title option in dropdown
         return (
