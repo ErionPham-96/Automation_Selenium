@@ -1,7 +1,7 @@
 import pytest
 from base.base_test import BaseTest
 from pages.login_page import LoginPage
-from pages.recruitment_page. import RecruitmentPage
+from pages.recruitment_page import RecruitmentPage
 from pages.candidates_page import CandidatesPage
 from pages.add_candidate_page import AddCandidatePage
 from tests.test_data.candidate_data import valid_candidate
