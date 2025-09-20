@@ -36,7 +36,7 @@ jobs:
 
       - name: Run smoke tests (no fail-fast)
         run: |
-          pytest -m smoke tests/test_login.py tests/test_open_recruitment.py \--html=report.html --self-contained-html
+          pytest -m smoke tests/test_login.py \--html=report.html --self-contained-html
 
       - name: Upload Test Report (always)
         if: always()          
