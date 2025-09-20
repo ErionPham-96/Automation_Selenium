@@ -8,6 +8,7 @@ from pages.add_vacancy_page import AddVacancyPage
 from tests.test_data.vacancy_data import valid_vacancy
 
 @pytest.mark.usefixtures("setup_driver")
+@pytest.mark.smoke
 class TestFlow(BaseTest):
     
     def test_login(self):
