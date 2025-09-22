@@ -5,8 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage(BasePage):
-    USERNAME = (By.NAME, "username")
-    PASSWORD = (By.NAME, "password")
+    USERNAME = (By.XPATH, "//input[@name = 'username']")
+    PASSWORD = (By.XPATH, "//input[@name = 'password']")
     LOGIN_BUTTON = (By.XPATH, "//button[@type='submit']")
     
     def login(self, username, password):
